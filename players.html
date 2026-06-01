@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Players</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+</head>
+<body>
+<h1 class="title">Đội hình HEAVY</h1>
+<div class="players">
+<div class="card" onclick="openPlayer('alan')">
+<img src="images/alan.jpg">
+<h3>Alan</h3>
+<p>Bomber</p>
+</div>
+<div class="card" onclick="openPlayer('dontcry')">
+<img src="images/don'tcry.jpg">
+<h3>Don't Cry</h3>
+<p>Rusher</p>
+</div>
+<div class="card" onclick="openPlayer('mufasa')">
+<img src="images/mufasa.jpg">
+<h3>Mufasa</h3>
+<p>Support</p>
+</div>
+<div class="card" onclick="openPlayer('bhuy')">
+<img src="images/bhuy.jpg">
+<h3>B Huy</h3>
+<p>Sniper</p>
+</div>
+<div class="card" onclick="openPlayer('ctuan')">
+<img src="images/ctuan.jpg">
+<h3>Ctuan</h3>
+<p>Sniper</p>
+</div>
+<div class="card coach" onclick="openPlayer('khabi')">
+<img src="images/khabi.jpg">
+<h3>Khabi</h3>
+<p>Huấn luyện viên</p>
+</div>
+</div>
+<div id="popup" class="popup" onclick="closePopup(event)">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">✖</span>
+    <div class="popup-left">
+      <img id="p-img" src="">
+    </div>
+    <div class="popup-right">
+      <h2 id="p-name"></h2>
+      <span class="badge" id="p-role"></span>
+      <p id="p-desc"></p>
+      <button class="btn-close" onclick="closePopup()">Đóng</button>
+    </div>
+  </div>
+</div>
+<script>
+function openPlayer(name){
+const data = {
+    alan:{
+        img:"images/popupalan.png",
+        name:"Alan",
+        role:"Bomber",
+        desc:`
+        <h3>Thông tin tuyển thủ</h3>
+        <p>Họ và tên: Nguyễn Trí Dũng</p>
+        <p>Năm sinh: 2005</p>
+        <p>Quê quán: Quảng Trị</p>
+        <p>Mô tả tuyển thủ: Tuyển thủ chủ lực của HEAVY, kỹ năng cao, khả năng gánh team cực mạnh.</p>
+        <a href="https://www.facebook.com/share/19vKbQd3Xm/?mibextid=wwXIfr" target="_blank">Facebook</a><br>
+        <a href="https://www.tiktok.com/@alann0512" target="_blank">Tiktok</a><br>
+        <a href="https://zypage.com/alan0512" target="_blank">Donate</a>
+        `
+    },
+    dontcry:{
+        img:"images/popupdon'tcry.png",
+        name:"Don't Cry",
+        role:"Rusher",
+        desc:`
+        <h3>Thông tin tuyển thủ</h3>
+        <p>Họ và tên: Phạm Duy Bình</p>
+        <P>Năm sinh: 2004</p>
+        <P>Quê quán: Tp.Hồ Chí Minh</p>
+        <P>Mô tả tuyển thủ: Lối chơi tấn công mạnh mẽ, luôn mở combat cho team.</p>
+        <a href="https://www.facebook.com/share/1EweXcZQW4/?mibextid=wwXIfr" target="_blank">Facebook</a><br>
+        <a href="https://tiktok.com/@dontcry.duybinh" target="_blank">Tiktok</a>
+        `
+    },
+    mufasa:{
+        img:"images/popupmufasa.png",
+        name:"Mufasa",
+        role:"Support",
+        desc:`
+        <h3>Thông tin tuyển thủ</h3>
+        <p>Họ và tên: Phạm Hoàng Việt</p>
+        <p>Năm sinh: 2005</p>
+        <p>Quê quán: Tp.Hồ Chí Minh</p>
+        <p>Mô tả tuyển thủ: Hỗ trợ team cực tốt.</p>
+        <a href="https://www.facebook.com/share/1DHKUg4b4Q/?mibextid=wwXIfr" target="_blank">Facebook</a><br>
+        <a href="https://tiktok.com/@hvietlee" target="_blank">Tiktok</a>
+        `
+    },
+    bhuy:{
+        img:"images/bhuy.jpg",
+        name:"B Huy",
+        role:"Sniper",
+        desc:`
+        <h3>Thông tin tuyển thủ</h3>
+        <p>Họ và tên: Nguyễn Bá Huy</p>
+        <p>Năm sinh: 2005</p>
+        <p>Quê quán: Quy Nhơn</p>
+        <p>Mô tả tuyển thủ: Khả năng bắn xa cực chính xác.</p>
+        <a href="https://www.tiktok.com/@nguyenbahuy2808" target="_blank">Tiktok</a><br>
+        <a href="https://zypage.com/bhuycamon" target="_blank">Donate</a>
+        `
+    },
+    ctuan:{
+        img:"images/ctuan.jpg",
+        name:"Ctuan",
+        role:"Sniper",
+        desc:`
+        <h3>Thông tin tuyển thủ</h3>
+        <p>Họ và tên: Nguyễn Công Tuân</p>
+        <p>Năm sinh: 2007</p>
+        <p>Quê quán: Thái Bình</p>
+        <p>Mô tả tuyển thủ: Thi đấu ổn định, giữ góc tốt.</p>
+        <a href="https://www.tiktok.com/@ctuanhihi11" target="_blank">Tiktok</a>
+        `
+    },
+    khabi:{
+        img:"images/popupkhabi.jpg",
+        name:"Khabi",
+        role:"Huấn luyện viên",
+        desc:`
+        <h3>Thông tin tuyển thủ</h3>
+        <p>Họ và tên: Võ Thanh Khang</p>
+        <p>Năm sinh: 2004</p>
+        <p>Quê quán: Bình Dương</p>
+        <p>Mô tả tuyển thủ: Người dẫn dắt chiến thuật của đội.</p>
+        <a href="https://www.facebook.com/bi.kha.779?mibextid=wwXIfr&mibextid=wwXIfr" target="_blank">Facebook</a><br>
+        <a href="https://www.tiktok.com/@khabi_tk004" target="_blank">Tiktok</a><br>
+        <a href="https://www.instagram.com/vtkhaq_904" target="_blank">Instagram</a><br>
+        <a href="http://zypage.com/kbictezz04" target="_blank">Donate</a>
+        `
+    }
+};
+document.getElementById("p-img").src = data[name].img;
+document.getElementById("p-name").innerText = data[name].name;
+document.getElementById("p-role").innerText = data[name].role;
+document.getElementById("p-desc").innerHTML = data[name].desc;
+document.getElementById("popup").style.display = "flex";
+}
+function closePopup(e){
+if(!e || e.target.id === "popup"){
+document.getElementById("popup").style.display = "none";
+}
+}
+document.addEventListener("keydown", function(e){
+if(e.key === "Escape"){
+document.getElementById("popup").style.display = "none";
+}
+});
+</script>
+</body>
+</html>

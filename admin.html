@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>
+if(localStorage.getItem("login")!=="true") location="login.html";
+</script>
+<h1>Dashboard</h1>
+<div class="admin-menu">
+<a href="manage_players.html">Quản lý tuyển thủ</a>
+<a href="manage_news.html">Quản lý tin</a>
+<a href="#" onclick="logout()">Đăng xuất</a>
+</div>
+<script>
+function logout(){
+ localStorage.removeItem("login");
+ location="index.html";
+}
+</script>
+</body>
+</html>

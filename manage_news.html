@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>News</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>
+if(localStorage.getItem("login")!=="true") location="login.html";
+</script>
+<h1>Thêm tin</h1>
+<input id="text" placeholder="Nội dung">
+<button onclick="addNews()">Đăng</button>
+<script>
+function addNews(){
+ let n = JSON.parse(localStorage.getItem("news"))||[];
+ n.push(text.value);
+ localStorage.setItem("news",JSON.stringify(n));
+ alert("Đã đăng!");
+}
+</script>
+</body>
+</html>

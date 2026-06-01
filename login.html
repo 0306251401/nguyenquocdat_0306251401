@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="center">
+<div class="box">
+<h2>Admin Login</h2>
+<input id="u" placeholder="admin">
+<input id="p" type="password" placeholder="123">
+<button onclick="login()">Login</button>
+</div>
+<script>
+function login(){
+  if(u.value==='admin' && p.value==='123'){
+    localStorage.setItem("login","true");
+    location="admin.html";
+  } else alert("Sai!");
+}
+</script>
+</body>
+</html>
